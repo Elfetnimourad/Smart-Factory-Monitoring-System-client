@@ -7,6 +7,15 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Alarmes from "./pages/Alarmes";
 import UserLayout from "./layouts/UserLayout";
+import ProductionLineCards from "./pages/Machines";
+import ProductionLineDetails from "./pages/MachineDetails";
+import ProductionPage from "./pages/Production";
+import DashboardPage from "./pages/Dashboard";
+import DowntimePage from "./pages/Downtime";
+import QualityPage from "./pages/Quality";
+import ReportsPage from "./pages/Reports";
+import SettingsPage from "./pages/admin/Settings";
+import ProfilePage from "./pages/Profile";
 
 
 function App() {
@@ -22,6 +31,22 @@ function App() {
 
       <Route element={<UserLayout/>}>
         <Route element={<Alarmes/>} path="/alarms"/>
+        <Route element={<ProductionLineCards/>} path="/machines"/>
+<Route path="/production-lines/:lineId" element={<ProductionLineDetails />} />
+
+<Route
+  path="/production"
+  element={<ProductionPage />}
+/>
+<Route
+  path="/dashboard"
+  element={<DashboardPage />}
+/>
+<Route path="/downtime" element={<DowntimePage />} />
+<Route path="/quality" element={<QualityPage />} />
+<Route path="/reports" element={<ReportsPage />} />
+<Route path="/settings" element={<SettingsPage />} />
+<Route path="/profile" element={<ProfilePage />} />
       </Route>
       <Route element={<AdminRoute/>}>
 

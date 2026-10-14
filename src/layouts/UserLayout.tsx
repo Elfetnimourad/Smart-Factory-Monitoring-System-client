@@ -1,3 +1,4 @@
+
 import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
@@ -10,10 +11,10 @@ export default function UserLayout() {
       sx={{
         minHeight: "100vh",
         width: "100%",
-        bgcolor: "#f8fafc",
+        bgcolor: "#071426",
       }}
     >
-      {/* Sidebar */}
+      {/* Responsive Sidebar */}
       <Sidebar />
 
       {/* Navbar */}
@@ -23,8 +24,17 @@ export default function UserLayout() {
       <Box
         component="main"
         sx={{
-          marginLeft: "250px",
-          paddingTop: "100px",
+          // Desktop: leave room for the fixed sidebar.
+          // Mobile: use the full width.
+          ml: { xs: 0, md: "250px" },
+
+          width: {
+            xs: "100%",
+            md: "calc(100% - 250px)",
+          },
+
+          // Leave room for the fixed navbar.
+          pt: { xs: "80px", md: "100px" },
 
           minHeight: "100vh",
 
@@ -34,7 +44,7 @@ export default function UserLayout() {
             md: 4,
           },
 
-          py: 3,
+          pb: 3,
 
           boxSizing: "border-box",
         }}
@@ -44,3 +54,4 @@ export default function UserLayout() {
     </Box>
   );
 }
+
